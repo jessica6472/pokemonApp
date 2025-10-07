@@ -10,11 +10,37 @@ namespace pokemonApp
     {
         static void Main(string[] args)
         {
-            Pokemon p = new Pokemon();
-            p.Nome = "Bulbasauro";
-            p.Descricao = "Bulbasauro ee um pokemon tipo planta";
-            p.ExibirDados();
-            Console.ReadKey();
+            Pokedex pokedex = new Pokedex();
+            //Pokemon p = pokedex.Pokemons[1];
+            int resp =100;
+            while (resp != 0)
+            {
+                resp = Menu();
+                if (resp == 1)
+                {
+                    pokedex.ListarPokemons();
+                }
+                else if (resp == 0)
+                {
+                    Console.WriteLine("Saindo da Pokedex");
+                }
+                else
+                {
+                    Console.WriteLine("Opcao Invalida");
+                }
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+        static int Menu()
+        {
+            Console.WriteLine("Pokedex ------Agenda Pokemon");
+            Console.WriteLine("0 - Sair da Pokedex");
+            Console.WriteLine("1 - Listar Pokemons");
+            Console.WriteLine("O Que deseja fazer?");
+            int resp = Convert.ToInt32(Console.ReadLine());
+            return resp;
+
         }
     }
 }
